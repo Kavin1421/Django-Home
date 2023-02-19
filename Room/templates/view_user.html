@@ -1,0 +1,46 @@
+{% extends 'navigation.html' %}
+{% block body %}
+<br>
+<br>
+<center><div class="container"><h2 style="color:white;background-color:#20305E;width:100%">View User</h2></div></center>
+ <div class="container">
+<table class="table table-bordered" width="100%" id="myTable">
+  <thead>
+  <tr>
+    <th>Username</th>
+    <th>Full Name</th>
+      <th>Email Id</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Contact</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in data %}
+
+  <tr>
+
+    <td>{{i.user.username}}</td>
+    <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+
+    <td>{{i.user.email}}</td>
+    <td>{{i.gen}}</td>
+    <td>{{i.add}}</td>
+      <td>{{i.mobile}}</td>
+    {% if i.user.is_staff %}
+    <td><button2 class="button2 button1" style="bockground-color:red">Staff_User</button2></td>
+    {% else %}
+      <td><a href="{% url 'edit_user' i.id %}"><button class="button button1">Edit</button></a>
+      <a href="{% url 'delete_user' i.id %}"><button class="button button2">Delete</button></a></td>
+    {% endif %}
+  </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+ </div>
+
+{% endblock %}

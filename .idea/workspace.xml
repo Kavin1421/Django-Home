@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="600be2b7-b911-4c5a-91d1-3223e1211e44" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Room_</find>
+      <find>reques</find>
+      <find>add_r</find>
+      <find>Add_roo</find>
+      <find>detail1</find>
+      <find>room_img</find>
+      <find>View_use</find>
+      <find>Room_im</find>
+      <find>img</find>
+      <find>add_Room_im</find>
+      <find>dele</find>
+      <find>edit_de</find>
+      <find>search</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\BHUWAN BHASKAR\Desktop\SearchingYourHome\Room\templates</dir>
+    </dirStrings>
+  </component>
+  <component name="ProjectId" id="1td6g6SQDnYV8dlHIrAok5jlPqn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="F:/RealStateDjango/RealStateMgmt" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BHUWAN BHASKAR\Desktop\SearchingYourHome\Room\templates" />
+      <recent name="C:\Users\BHUWAN BHASKAR\Desktop\SearchingYourHome\Room" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="600be2b7-b911-4c5a-91d1-3223e1211e44" name="Default Changelist" comment="" />
+      <created>1581149740493</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581149740493</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="66" key="FileChooserDialogImpl" timestamp="1623148097752">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="66" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1623148097752" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1623137649686">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1623137649686" />
+  </component>
+</project>

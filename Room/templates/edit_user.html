@@ -1,0 +1,149 @@
+{% extends 'navigation.html' %}
+{% block body %}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #20305E;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-right:40%;
+  margin-top:8%;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container{
+   width:50%;
+  border-radius: 5px;
+  background-color: #99DBF9;
+  padding: 20px;
+}
+.container2{
+   width:50%;
+  border-radius: 5px;
+  background-color: #20305E;
+  color:white;
+  padding: 10px;
+  margin:10px;
+  float:center;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    float:center;
+  }
+}
+</style>
+{% if error %}
+    <script>alert('Updated User Sucessfully');
+window.location='{% url 'view_user' %}';
+</script>
+    {% endif %}
+</head>
+<body>
+<center><div class="container2">
+
+<h3>Edit User Detail</h3>
+</div></center>
+<div class="container">
+  <form action="" method="post">
+      {% csrf_token %}
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">UserName</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="uname"  value="{{data.user.username}}">
+    </div>
+  </div><div class="row">
+    <div class="col-25">
+      <label for="fname">First Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="fname" value="{{data.user.first_name}}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Last Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="lname" value="{{data.user.last_name}}">
+    </div>
+  </div>
+      <div class="row">
+    <div class="col-25">
+      <label for="lname">E-mail</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="email" value="{{data.user.email}}">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label >Adress</label>
+    </div>
+    <div class="col-75">
+           <input type="text" id="add" name="add" value="{{data.add}}">
+    </div>
+  </div>
+      <div class="row">
+    <div class="col-25">
+      <label >Mobile</label>
+    </div>
+    <div class="col-75">
+           <input type="text" id="add" name="mobile" value="{{data.mobile}}">
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+</div>
+
+{% endblock %}

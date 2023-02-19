@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!-- {% extends 'navigation.html' %} -->
+    {% block body %}
+  {% load static %}
+    <!-- <title> Responsive Registration Form </title>- -->
+    <link rel="stylesheet" href="{% static '\style1.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  {% if error %}
+    <script>alert('Logged in Sucessfully');
+window.location='{% url 'signin' %}';
+</script>
+    {% endif %}
+  <div class="container">
+    <div class="title">Register Form</div>
+    <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your name" name="fname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter your name" name="lname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" name="uname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">E-mail</span>
+            <input type="text" placeholder="Enter your email" name="email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Mobile Number</span>
+            <input type="text" placeholder="Enter your number" name="mobile" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" name="pwd" required>
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" required>
+          </div> -->
+          <div class="gender-details">
+            <input type="radio" name="male" id="dot-1">
+            <input type="radio" name="male" id="dot-2">
+            <input type="radio" name="male" id="dot-3">
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male </span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Others</span>
+              </label>
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">DOB</span>
+            <input type="date" placeholder="Enter your DOB" name="birth" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" placeholder="Enter your Address" name="add" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Pancard/Aadhar</span>
+            <input type="text" placeholder="Enter your Pancard Num/Aadhar Card Num" name="proof" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Proof</span>
+            <input type="file" placeholder="Upload Yor Proof" name="img" required>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}

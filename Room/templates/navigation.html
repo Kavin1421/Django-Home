@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Searching Your House</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel = stylesheet href = "https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>
+   $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+
+  </script>
+    <style>
+    .button {
+  background-color: orange; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 12px;}
+.button2 {border-radius: 12px;}
+
+th{
+background-color:#20305E;
+color:white;
+}
+
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="padding:0px;margin:0px;background-color:#20305E;color:white">
+  <div class="container-fluid" style="padding:0px;margin:0px">
+    <div><class="navbar-header" style="margin-bottom:4px;margin-right:10px;">
+      <a class="navbar-brand" href="#"><span style="font-size:40px;color:Red"><i style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">H</i></span><span style="font-size:20px;color:white">ouse </span><span style="font-size:40px;color:Red"><i style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">R</i></span><span style="font-size:20px;color:white">ental </span><span style="font-size:40px;color:Red"><i style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">B</i></span><span style="font-size:20px;color:white">ooking</span></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'home' %}" style = "color : white" ><span class="glyphicon glyphicon-home" style="padding:4px"></span>Home</a></li>
+
+        <li><a href="{% url 'about' %}" style = "color : white"><span class="glyphicon glyphicon-book" style="padding:4px"></span>About</a></li>
+
+        <li><a href="{% url 'contact' %}" style = "color : white"><span class="glyphicon glyphicon-phone" style="padding:4px"></span>Contact Us</a></li>
+      {% if not request.user.is_staff %}
+
+      <li><a href="{% url 'search' %}" style = "color : white"><span class="glyphicon glyphicon-search" style="padding:4px"></span>Search House</a></li>
+      {% if request.user.username %}
+        <li><a href="{% url 'rent1' %}" style = "color : white"><span class="glyphicon glyphicon-plus" style="padding:4px"></span>Add HouseOnRent</a></li>
+      <li><a href="{% url 'img' %}" style = "color : white"><span class="glyphicon glyphicon-View" style="padding:4px"></span>View My Ad</a></li>
+    {% endif %}
+        {% else %}
+      <li><a href="{% url 'view_user' %}" style = "color : white"><span class="glyphicon glyphicon-View" style="padding:4px"></span>View User</a></li>
+      <li><a href="{% url 'request' %}" style = "color : white"><span class="glyphicon glyphicon-View" style="padding:4px"></span>View Request</a></li>
+      <li><a href="{% url 'bookings' %}" style = "color : white"><span class="glyphicon glyphicon-View" style="padding:4px"></span>Total Bookings</a></li>
+      <li><a href="{% url 'alladd' %}" style = "color : white"><span class="glyphicon glyphicon-View" style="padding:4px"></span>View All Ad</a></li>
+
+        <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size:17px;color : white">
+        State
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'add_state' %}" style="font-size:17px;color : #20305E">Add State</a><br>
+        <a class="dropdown-item" href="{% url 'view_state' %}" style="font-size:17px;color : #20305E">View State</a>
+      </div>
+    </li>
+       <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size:17px;color : white ">
+        District
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'add_dist' %}" style="font-size:17px;color : #20305E">Add District</a><br>
+        <a class="dropdown-item" href="{% url 'view_dist' %}" style="font-size:17px;color : #20305E">View District</a>
+      </div>
+    </li>
+        {% endif %}
+    </ul>
+    {% if request.user.username %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'user_detail' %}" style="color:white;font-size:20px"> <span class="glyphicon glyphicon-user" style="padding:4px;"></span>Welcome  {{request.user.username}}</a></li>
+      <li><a href="{% url 'logout' %}" style="margin-right:30px"><span class="glyphicon glyphicon-log-out" style="padding:4px;"></span> Logout</a></li>
+    </ul>
+    {% else %}
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user" style="padding:4px ; color : white"></span>Sign Up</a></li>
+      <li><a href="{% url 'signin' %}"><span class="glyphicon glyphicon-log-in" style="padding:4px ; color : white"></span> Login</a></li>
+    </ul>
+    {% endif %}
+  </div>
+</nav>
+{% block body %}
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

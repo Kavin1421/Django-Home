@@ -1,0 +1,33 @@
+{% extends 'navigation.html' %}
+{% block body %}
+<center><div class="container"><h2 style="color:white;background-color:#20305E;width=100%">View District</h2></div></center>
+ <div class="container">
+<table class="table table-bordered" width="100%" id="myTable">
+  <thead>
+  <tr>
+    <th>Serial No.</th>
+    <th>State Name</th>
+    <th>District Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in dist %}
+
+  <tr>
+
+    <td>{{forloop.counter}}</td>
+    <td>{{i.state.state}}</td>
+    <td>{{i.dist}}</td>
+      <td>
+      <a href="{% url 'delete_dist' i.id %}"><button class="button button2">Delete</button></a></td>
+  </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+ </div>
+
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends 'navigation.html' %}
+{% block body %}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text],[type=number],[type=file], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+#id1 {
+  background-color: #20305E;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-right:40%;
+  margin-top:1%;
+}
+#id2{
+    background-color: #20305E;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container{
+   width:50%;
+  border-radius: 5px;
+  background-color: #99DBF9;
+  padding: 20px;
+}
+.container2{
+   width:50%;
+  border-radius: 5px;
+  background-color: #20305E;
+  color:white;
+  padding: 10px;
+  margin:10px;
+  float:center;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    float:center;
+  }
+}
+</style>
+{% if error %}
+    <script>alert('Room Added Sucessfully');
+window.location='{% url 'img' %}';
+</script>
+    {% endif %}
+<center><div class="container2">
+    <h3 style="color">Add Home On Rent</h3>
+</div></center>
+<div class="container">
+  <form action="{% url 'rent1' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+<div class="row">
+<div class="col-25">
+      <label for="country">State</label>
+</div>
+
+      <select id="country" name="state" style="width:60%">
+
+          {% for i in state %}
+          {% ifnotequal i.state st.state  %}
+        <option value="{{i.state}}">{{i.state}}</option>
+
+          {% else %}
+          <option value="{{st.state}}" selected>{{st.state}}</option>
+
+          {% endifnotequal %}
+          {% endfor %}
+      </select>
+
+
+    <input id="id2" type="submit" value="search">
+  </div></form>
+  <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+<div class="row">
+      <div class="col-25">
+      <label for="country">District</label>
+    </div>
+    <div class="col-75">
+      <select id="country" name="dist">
+{% for i in dist %}
+        <option value="{{i.dist}}">{{i.dist}}</option>
+{% endfor %}
+      </select>
+    </div>
+</div>
+      <div class="row">
+      <div class="col-25">
+      <label for="fname">Local Address</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="local" placeholder="Your Local Address" required>
+    </div>
+      </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Title</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="title" placeholder="Enter Title" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Description</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="lname" name="desc" placeholder="Write your description" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Rent</label>
+    </div>
+    <div class="col-75">
+      <input type="Number" id="lname" name="rent" placeholder="Rent Per Month" required>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Image</label>
+    </div>
+    <div class="col-75">
+      <input type="file" id="lname" name="img" value="Choose File" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <input id="id1" type="submit" value="Submit">
+  </div>
+  </form>
+</div>
+
+{% endblock %}

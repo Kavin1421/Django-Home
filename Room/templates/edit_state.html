@@ -1,0 +1,33 @@
+{% extends 'navigation.html' %}
+{% block body %}
+<style>
+    input[type=text][type=password]{
+    border-radius:8px;
+    width:600px;
+    height:16px;
+    }
+    #bg{
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+</style>
+{% if error %}
+<script>alert('Edited State Sucessfully');
+window.location='{% url 'view_state' %}';
+</script>
+{% endif %}
+
+
+<div align="center" width="50%" style="color:Black;border:1px solid white;border-radius:8px;background-color:#99DBF9;padding:50px">
+
+        <h3><strong>Edit State</strong></h3><hr>
+    <form method="post" action="">
+        {% csrf_token %}
+        State<br><input type="text" value="{{data.state}}" name="state" style="border-radius:8px;width:600px;height:35px;"><br><br>
+<input type="submit" value="submit" style="color:white;border-radius:8px;width:100px;height:35px;background-color:#333;border:1px solid black">
+    </form>
+
+    </div>
+{% endblock %}
